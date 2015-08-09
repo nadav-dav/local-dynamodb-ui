@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Local DynamoDb</title>
+    <link href="bootstrap/css/bootstrap.slate.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Local DynamoDb</h1>
+            <input type="button" class="btn btn-warning" value="↻" onclick="window.location.reload" />
+        </div>
+        <div class="col-md-12">
+            <table class="table">
+                <% data.forEach(function(table){ %>
+                <caption><%= table.name %></caption>
+                <tr>
+                    <% table.fields.forEach(function(field){ %>
+                    <th><%=field %></th>
+                    <% }); %>
+                </tr>
+                <% table.items.forEach(function(item){ %>
+                <tr>
+                    <% table.fields.forEach(function(field){ %>
+                    <td><%=item[field] %></td>
+                    <% }); %>
+                </tr>
+                <% }); %>
+                <% }); %>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
